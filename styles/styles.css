@@ -209,6 +209,10 @@ body {
     .main-container {
         max-width: 100vw;
     }
+
+    .content-container {
+        padding-bottom: 100px !important;
+    }
 }
 
 .content-container {
@@ -220,7 +224,7 @@ body {
     max-width: 100%;
     overflow-y: auto;
     padding-top: 10px;
-    margin-bottom: 100px;
+    padding-bottom: 30px;
     gap: 30px;
 }
 
