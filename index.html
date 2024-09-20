@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./js/main.js" defer></script>
+</head>
+<body>
+    <section class="sc-sidebar">
+        <div class="sidebar-container expanded">
+            <a href="javascript:void(0)" class="logo-container">
+                <img src="./static/img/showcase.svg" alt="showcase-logo" class="big-logo collapsed-hidden">
+                <img src="./static/img/small-logo.svg" alt="showcase-logo" class="small-logo expanded-hidden">
+            </a>
+            <div class="profile-container">
+                <img src="./static/img/profile-pic.png" alt="profile-picture" class="profile-picture">
+                <p class="profile-name collapsed-hidden">Somil Saparia</p>
+            </div>
+            <div class="nav-container">
+                <ul>
+                    <li class="nav-link active-nav-link"><a href="javascript:void(0)"><i class="bi bi-speedometer2"></i><span class="collapsed-hidden"> Dashboard</span></a></li>
+                    <li class="nav-link"><a href="javascript:void(0)"><i class="bi bi-inbox"></i><span class="collapsed-hidden"> Inbox</span></a></li>
+                    <li class="nav-link"><a href="javascript:void(0)"><i class="bi bi-chat-dots"></i><span class="collapsed-hidden"> Chat</span></a></li>
+                    <li class="nav-link"><a href="javascript:void(0)"><i class="bi bi-calendar-check"></i><span class="collapsed-hidden"> Appointment</span></a></li>
+                    <li class="nav-link"><a href="javascript:void(0)"><i class="bi bi-person-check"></i><span class="collapsed-hidden"> Mentorship</span></a></li>
+                    <li class="nav-link"><a href="javascript:void(0)"><i class="bi bi-mortarboard"></i><span class="collapsed-hidden"> University</span></a></li>
+                </ul>
+            </div>
+            <div class="social-container">
+                <a href="javascript:void(0)"><i class="bi bi-instagram"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-linkedin"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-tiktok"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-snapchat"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-twitter-x"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-threads"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-discord"></i></a>
+            </div>
+            <a href="javascript:void(0)" class="collapsed-button collapsed-hidden"><i class="bi bi-arrow-bar-left"></i><span> Collapsed</span></a>
+            <a href="javascript:void(0)" class="expanded-button expanded-hidden"><i class="bi bi-arrow-bar-right"></i></a>
+            <a href="javascript:void(0)" class="logout-button"><i class="bi bi-box-arrow-right"></i><span class="collapsed-hidden"> Logout</span></a>
+        </div>
+    </section>
+    <section class="sc-main flex-grow-1">
+        <div class="main-container">
+            <div class="content-container container">
+                <div class="counter-container">
+                    <div class="counter col-12 col-sm-6 col-md-3">
+                        <div class="counter-body">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <div class="counter-details">
+                                <p class="counter-title">Appeared In Searches</p>
+                                <span class="timer counter alt-font appear" data-to="980" data-speed="7000">15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="counter col-12 col-sm-6 col-md-3">
+                        <div class="counter-body">
+                            <i class="fa-regular fa-eye"></i>
+                            <div class="counter-details">
+                                <p class="counter-title">Profile Views</p>
+                                <span class="timer counter alt-font appear" data-to="980" data-speed="7000">9</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="counter col-12 col-sm-6 col-md-3">
+                        <div class="counter-body">
+                            <i class="fa-solid fa-check"></i>
+                            <div class="counter-details">
+                                <p class="counter-title">Jobs Applied</p>
+                                <span class="timer counter alt-font appear" data-to="980" data-speed="7000">57</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="counter col-12 col-sm-6 col-md-3">
+                        <div class="counter-body">
+                            <i class="fa-solid fa-xmark"></i>
+                            <div class="counter-details">
+                                <p class="counter-title">Application Declined</p>
+                                <span class="timer counter alt-font appear" data-to="980" data-speed="7000">23</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                <canvas id="line-chart" class="graph"></canvas>
+                <div class="application-table">
+                    <div class="application-status application-status-applied flex-grow-1">
+                      <div class="status-title">
+                        <p>Application Submitted</p>
+                      </div>
+                      <div class="job-list jobs-applied">
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <!-- <div class="company-logo">
+                            <img src="./images/meta.jpeg" alt="company-logo">
+                          </div> -->
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Frontend Developer</p>
+                            <p class="company-name">Meta</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <!-- <div class="company-logo">
+                            <img src="./images/netflix.jpeg" alt="company-logo">
+                          </div> -->
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Backend Developer</p>
+                            <p class="company-name">Netflix</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <!-- <div class="company-logo">
+                            <img src="./images/google.jpeg" alt="company-logo">
+                          </div> -->
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Database Engineer</p>
+                            <p class="company-name">Google</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <!-- <div class="company-logo">
+                            <img src="./images/amazon.jpeg" alt="company-logo">
+                          </div> -->
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">AWS Developer</p>
+                            <p class="company-name">Amazon</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="application-status application-status-viewed flex-grow-1">
+                      <div class="status-title">
+                        <p>Application Viewed</p>
+                      </div>
+                      <div class="job-list jobs-viewed">
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Backend Developer</p>
+                            <p class="company-name">Netflix</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Database Engineer</p>
+                            <p class="company-name">Google</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">AWS Developer</p>
+                            <p class="company-name">Amazon</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Frontend Developer</p>
+                            <p class="company-name">Meta</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="application-status application-status-rejected flex-grow-1">
+                      <div class="status-title">
+                        <p>Applications Rejected</p>
+                      </div>
+                      <div class="job-list jobs-rejected">
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Database Engineer</p>
+                            <p class="company-name">Google</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">AWS Developer</p>
+                            <p class="company-name">Amazon</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Frontend Developer</p>
+                            <p class="company-name">Meta</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                        <div class="job-application d-flex justify-content-between align-items-center">
+                          <div class="company-details flex-grow-1 d-flex flex-column">
+                            <p class="job-role">Backend Developer</p>
+                            <p class="company-name">Netflix</p>
+                            <p class="application-date">Applied on: September 16th, 2024</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="job-section">
+                    <p>Job Recommendations</p>
+                    <div class="job-container">
+                        <div class="job col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="job-body">
+                                <div class="job-poster">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <p class="job-title">React Js Developer</p>
+                                    <p class="job-package">$500,000 / Year</p>
+                                </div>
+                                <div class="job-details">
+                                    <img src="./static/img/meta.jpeg" alt="company-logo">
+                                    <div class="job-company">
+                                        <p>Meta</p>
+                                        <p>19 Sep, 2024</p>
+                                    </div>
+                                    <button class="apply-btn btn btn-outline-dark"> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="job-body">
+                                <div class="job-poster">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <p class="job-title">React Js Developer</p>
+                                    <p class="job-package">$500,000 / Year</p>
+                                </div>
+                                <div class="job-details">
+                                    <img src="./static/img/meta.jpeg" alt="company-logo">
+                                    <div class="job-company">
+                                        <p>Meta</p>
+                                        <p>19 Sep, 2024</p>
+                                    </div>
+                                    <button class="apply-btn btn btn-outline-dark"> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="job-body">
+                                <div class="job-poster">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <p class="job-title">React Js Developer</p>
+                                    <p class="job-package">$500,000 / Year</p>
+                                </div>
+                                <div class="job-details">
+                                    <img src="./static/img/meta.jpeg" alt="company-logo">
+                                    <div class="job-company">
+                                        <p>Meta</p>
+                                        <p>19 Sep, 2024</p>
+                                    </div>
+                                    <button class="apply-btn btn btn-outline-dark"> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="job-body">
+                                <div class="job-poster">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <p class="job-title">React Js Developer</p>
+                                    <p class="job-package">$500,000 / Year</p>
+                                </div>
+                                <div class="job-details">
+                                    <img src="./static/img/meta.jpeg" alt="company-logo">
+                                    <div class="job-company">
+                                        <p>Meta</p>
+                                        <p>19 Sep, 2024</p>
+                                    </div>
+                                    <button class="apply-btn btn btn-outline-dark"> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="job-body">
+                                <div class="job-poster">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <p class="job-title">React Js Developer</p>
+                                    <p class="job-package">$500,000 / Year</p>
+                                </div>
+                                <div class="job-details">
+                                    <img src="./static/img/meta.jpeg" alt="company-logo">
+                                    <div class="job-company">
+                                        <p>Meta</p>
+                                        <p>19 Sep, 2024</p>
+                                    </div>
+                                    <button class="apply-btn btn btn-outline-dark"> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="job-body">
+                                <div class="job-poster">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <p class="job-title">React Js Developer</p>
+                                    <p class="job-package">$500,000 / Year</p>
+                                </div>
+                                <div class="job-details">
+                                    <img src="./static/img/meta.jpeg" alt="company-logo">
+                                    <div class="job-company">
+                                        <p>Meta</p>
+                                        <p>19 Sep, 2024</p>
+                                    </div>
+                                    <button class="apply-btn btn btn-outline-dark"> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-social-bar-container hidden">
+                <a href="javascript:void(0)"><i class="bi bi-instagram"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-linkedin"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-tiktok"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-snapchat"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-twitter-x"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-threads"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="bottom-bar-container hidden">
+                <a href="javascript:void(0)" class="bottom-link-active"><i class="bi bi-speedometer2"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-inbox"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-chat-dots"></i></a>
+                <a href="javascript:void(0)"><i class="bi bi-calendar-check"></i></a>
+                <a href="javascript:void(0)" class="social-links"><i class="bi bi-link-45deg"></i></a>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var counters = document.querySelectorAll('.timer');
+            counters.forEach(function(counter) {
+                var updateCounter = function(start, end, duration) {
+                    var startTime = null;
+
+                    var animate = function(currentTime) {
+                        if (!startTime) startTime = currentTime;
+                        var progress = currentTime - startTime;
+                        var current = Math.ceil(start + (end - start) * (progress / duration));
+                        
+                        if (current > end) current = end; // Ensure it doesn't go beyond the final value
+                        counter.textContent = current;
+
+                        if (progress < duration) {
+                            requestAnimationFrame(animate);
+                        }
+                    };
+
+                    requestAnimationFrame(animate);
+                };
+
+                var endValue = parseInt(counter.textContent, 10) || 0;
+                updateCounter(0, endValue, 4000); // start from 0, end at the current value in 4000ms
+            });
+        });
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
