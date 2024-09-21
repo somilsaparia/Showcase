@@ -68,27 +68,27 @@ const dataLine = {
       data: {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [{
-            label: "My First dataset",
+            label: "Jobs Applied",
             data: [65, 59, 80, 81, 56, 55, 40],
             backgroundColor: [
-              'rgba(105, 0, 132, .2)',
+              'rgba(56, 182, 255, 0.2)',
             ],
             fill: true,
             borderColor: [
-              'rgba(255, 99, 132, 0.8)',
+              'rgba(56, 182, 255, 1)',
             ],
             borderWidth: 2,
             tension: 0.4
           },
           {
-            label: "My Second dataset",
+            label: "Events Attended",
             data: [28, 48, 40, 19, 86, 27, 90],
             backgroundColor: [
-              'rgba(0, 137, 132, .2)',
+              'rgba(255, 145, 77, 0.2)',
             ],
             fill: true,
             borderColor: [
-              'rgba(50, 150, 255, 1)',
+              'rgba(255, 145, 77, 1)',
             ],
             borderWidth: 2,
             tension: 0.4
